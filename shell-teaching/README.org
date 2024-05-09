@@ -1,0 +1,118 @@
+When teaching Bash, we use [[https://github.com/rgaiacs/swc-shell-split-window][@rgaiacs's shell split window tool]] together with VS Code as an interface.
+
+* Our split-shell setup
+
+We use VS Code terminal because we've found it's the easier to configure it so
+that it looks good when teaching on a projector or online while providing very
+little distraction. Also, its configuration works well in either operating
+system.
+
+Here are the steps to configure it for different operating systems. You'll need
+=tmux=, =bash= and VS Code's [[https://marketplace.visualstudio.com/items?itemName=saviorisdead.Theme-GitHubCleanWhite][GH clean white theme]].
+
+** Windows
+We've found the easiest on Windows is to set it through WSL
+*** With basic WSL
+On Windows 10, with docker-desktop and vs code, open WSL (system) console and run:
+
+[[file:01-start-wsl.png]]
+
+#+begin_src bash
+ apk update && apk add tmux libstdc++ nano curl bash coreutils
+#+end_src
+
+Open VS Code and connect to WSL
+
+[[file:02-vscode-connect-wsl.png]]
+
+The WSL is empty of users and directories, so we create:
+
+=/root/teaching/.vscode= and =/home/teacher/=
+Under =.vscode= folder we save the following json file:
+
+#+begin_src json
+  {
+      "//a": "this theme is familiar to devs",
+      "!a": "you need to install this theme",
+      "workbench.colortheme": "github clean white",
+      "//b": "minor tweaks to improve contrast & make cursor stands out",
+      "workbench.colorcustomizations": {
+          "editorcursor.background": "#ffffff",
+          "editorcursor.foreground": "#0000bb",
+          "editor.linehighlightbackground": "#f0f0f0",
+          "editor.selectionbackground": "#aaeeff"
+      },
+      "//c": "clean the screen from unnecessary elements",
+      "workbench.statusbar.visible": false,
+      "editor.minimap.enabled": false,
+      "//d": "just rely on the tabs on top to keep full screen width",
+      "explorer.openeditors.visible": 0,
+      "//e": "mimic github style",
+      "editor.renderwhitespace": "none",
+      "//f": "this is github font style",
+      "!f": "you need to install this font on your machine",
+      "editor.fontfamily": "sf mono",
+      "terminal.integrated.fontfamily": "monospace",
+      "//h": "make the text big enough to be comfortable",
+      "editor.fontweight": "600",
+      "editor.fontsize": 24,
+      "terminal.integrated.fontweight": "800",
+      "terminal.integrated.fontsize": 28,
+      "//i": "rely on a simple shell, avoid fancy configuration",
+      "!i": "it's even better if you add `export ps1='\\$ '` to your .bash_profile",
+      "terminal.integrated.shell.linux": "/bin/bash",
+      "terminal.integrated.shell.osx": "/bin/bash",
+      "//j": "prevent the editor to magically edit code on save",
+      "editor.formatonsave": false,
+      "//k": "disable preview so we can open all files at once",
+      "workbench.editor.enablepreview": false,
+      "editor.guides.indentation": false,
+      "workbench.activitybar.location": "hidden"
+  }
+#+end_src
+
+on the extensions menu, install the github clean white theme.
+
+in the =teaching= directory save the =swc-shell-split-window.sh= file from
+[[https://github.com/rgaiacs/swc-shell-split-window][swc-shell-split-window repository]].
+
+this can be done through vs code terminal using:
+#+begin_src bash
+  cd ~/teaching && curl -o https://github.com/rgaiacs/swc-shell-split-window/master/swc-shell-split-window.sh && chmod u+x ./swc-shell-split-window.sh
+#+end_src
+
+Click on VSCode to open folder and select: =/root/teaching/=. This will open
+VSCode with an almost empty UI.
+
+Go to "view" and remove other UI elements that you don't want here. Also, remove
+the problems, output and similar tabs clicking with the right button on the bar
+above the terminal.
+
+In the terminal, now when you run: =./swc-shell-split-window.sh= a tmux session
+with bot panels will open. Run, with a space at the start =cd /home/teacher/=.
+This will change directory without creating a new item in history. Using "ctrl +
+l" will clean the window and be ready for the class.
+
+[[file:03-vscode-with-split.png]]
+
+and when running will look like:
+
+[[file:04-vscode-split-example.png]]
+*** With a distribution WSL
+
+The commands to install the dependencies will depend on the distribution you've
+got. However, most likely you'll only need to install =tmux= as the other
+dependencies listed above would be already there.
+#+begin_src bash
+  apt install tmux # for a debian based distro
+  dnf install tmux # for a redhat/fedora
+#+end_src
+
+The rest of the steps should be similar to the ones listed above.
+** macOS
+
+Install [[https://brew.sh/][homebrew]] and get bash and tmux.
+
+** Linux
+
+Install tmux following your distribution installer.
