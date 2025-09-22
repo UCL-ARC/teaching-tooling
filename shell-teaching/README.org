@@ -34,40 +34,38 @@ Under =.vscode= folder we save the following json file:
   {
       "//a": "this theme is familiar to devs",
       "!a": "you need to install this theme",
-      "workbench.colortheme": "github clean white",
+      "workbench.colorTheme": "GitHub Clean White",
       "//b": "minor tweaks to improve contrast & make cursor stands out",
-      "workbench.colorcustomizations": {
-          "editorcursor.background": "#ffffff",
-          "editorcursor.foreground": "#0000bb",
-          "editor.linehighlightbackground": "#f0f0f0",
-          "editor.selectionbackground": "#aaeeff"
+      "workbench.colorCustomizations": {
+          "editorCursor.background": "#ffffff",
+          "editorCursor.foreground": "#0000bb",
+          "editor.lineHighlightBackground": "#f0f0f0",
+          "editor.selectionBackground": "#aaeeff"
       },
       "//c": "clean the screen from unnecessary elements",
-      "workbench.statusbar.visible": false,
+      "workbench.statusBar.visible": false,
       "editor.minimap.enabled": false,
       "//d": "just rely on the tabs on top to keep full screen width",
-      "explorer.openeditors.visible": 0,
-      "//e": "mimic github style",
-      "editor.renderwhitespace": "none",
+      "explorer.openEditors.visible": 0,
+      "editor.renderWhitespace": "none",
       "//f": "this is github font style",
       "!f": "you need to install this font on your machine",
-      "editor.fontfamily": "sf mono",
-      "terminal.integrated.fontfamily": "monospace",
+      "editor.fontFamily": "sf mono",
       "//h": "make the text big enough to be comfortable",
-      "editor.fontweight": "600",
-      "editor.fontsize": 24,
-      "terminal.integrated.fontweight": "800",
-      "terminal.integrated.fontsize": 28,
+      "editor.fontWeight": "600",
+      "editor.fontSize": 24,
+      "terminal.integrated.fontWeight": "800",
+      "terminal.integrated.fontSize": 28,
       "//i": "rely on a simple shell, avoid fancy configuration",
       "!i": "it's even better if you add `export ps1='\\$ '` to your .bash_profile",
       "terminal.integrated.shell.linux": "/bin/bash",
       "terminal.integrated.shell.osx": "/bin/bash",
       "//j": "prevent the editor to magically edit code on save",
-      "editor.formatonsave": false,
+      "editor.formatOnSave": false,
       "//k": "disable preview so we can open all files at once",
-      "workbench.editor.enablepreview": false,
+      "workbench.editor.enablePreview": false,
       "editor.guides.indentation": false,
-      "workbench.activitybar.location": "hidden"
+      "workbench.activityBar.location": "hidden"
   }
 #+end_src
 

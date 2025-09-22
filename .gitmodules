@@ -1,0 +1,3 @@
+[submodule "shell-teaching/swc-shell-split-window"]
+	path = shell-teaching/swc-shell-split-window
+	url = git@github.com:UCL-ARC/swc-shell-split-window.git
