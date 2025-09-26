@@ -1,4 +1,4 @@
-When teaching Bash, we use [[https://github.com/rgaiacs/swc-shell-split-window][@rgaiacs's shell split window tool]] together with VS Code as an interface.
+When teaching Bash, we use [[https://github.com/ucl-arc/swc-shell-split-window][@rgaiacs's shell split window tool]] together with VS Code as an interface.
 
 * Our split-shell setup
 
